@@ -1,0 +1,49 @@
+.sidebar-title{
+	font-weight: bold;
+	font-size: 20px;
+	letter-spacing: 0.1em;
+	color: #800000;
+}
+
+body{
+	background-image: linear-gradient(0deg, #fad1d0, white);
+	min-height: 100vh;
+}
+
+a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
+
+.vertical-nav{
+	min-width: 15rem;
+	width: 17rem;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+
+.page-content{
+	width: calc(100%-15rem);
+	margin-left: 17rem;
+}
+
+.nav-link{
+	font-weight: bold;
+}
+
+.student-profile .card {
+    border-radius: 10px;
+}
+
+.student-profile .card .card-header .profile_img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 10px auto;
+    border: 10px solid #ccc;
+    border-radius: 50%;
+}
+

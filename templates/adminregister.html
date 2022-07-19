@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+    {% block head %}
+      <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}"/>
+      <script>
+            function checkpassword() {
+                if(document.signup.pass.value!= document.signup.confpass.value)
+                {
+                    swal({
+                    title: "Password Mismatch",
+                    icon: "warning",
+                    });
+                    document.signup.confpass.focus();
+                    return false;
+                }
+                return true;
+            }
+        </script>
+    {% endblock %}
+
+
+    {% block body %}
+
+
+
+        <!-- navbar starts -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Attendance Manager</a>
+      </div>
+    </nav>
+
+
+    <!-- navbar ends -->
+
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card shadow mt-5">
+            <h5 class="mt-4 mx-4" style="border-bottom: 2px solid black;"> Create An Account </h5>
+                <div class="card-body">
+                <form method="post" name="signup" enctype="multipart/form-data" onsubmit="return checkpassword()">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" name="fname" class="form-control" placeholder="Enter First Name" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" name="lname" class="form-control" placeholder="Enter Last Name" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="email" class="form-control" placeholder="Enter Email Address" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Branch</label>
+                                    <select name="branch" class="form-control">
+                                        <option value="None">Select Branch</option>
+                                        <option value="Electronics">Electronics</option>
+                                        <option value="DataBase">Computer Science</option>
+                                        <option value="Networking">Networking</option>
+                                    </select>
+                                </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                            <label>Upload Pic</label>
+                            <input type="file" name="adminpic" class="form-control" required>
+                            </div>
+                        </div>
+                    <div class="col-sm-6">
+                            <div class="form-group">
+                            <label>Create Password</label>
+                            <input type="password" name="pass" class="form-control" placeholder="Set You Password" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                            <label>Confirm Password</label>
+                            <input type="password" name="confpass" class="form-control" placeholder="Enter Password Again" required>
+                            </div>
+                        </div>
+                    </div>
+                        <br>
+                    <input type="submit" class="btn btn-primary">    
+                </form>
+                </div>
+            </div>      
+        </div>
+    </div>
+    {% if error == "no" %}
+    <script>
+        swal({
+        title: "Registration Successful",
+        icon: "success",
+        });
+        window.location=('{% url 'adminlogin' %}');
+    </script>
+    {% endif %}
+
+    {% if error == "yes" %}
+    <script>
+        swal({
+        title: "Registration Unsuccessful",
+        icon: "error",
+        });
+    </script>
+    {% endif %}
+
+    {% endblock %}

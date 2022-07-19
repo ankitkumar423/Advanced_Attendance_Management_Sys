@@ -1,0 +1,50 @@
+{% extends 'staff_sidebar.html' %}
+{% load static %}
+
+    {% block main %}
+    <div class="student-profile py-4">
+        <div class="card shadow">
+            <div class="card-body">
+                <h5 class="p-2 mb-0">{{subid.subjects}} Attendance</h5>
+
+                <div class="container-fluid">
+                    <table id="example" class="table table-bordered" style="table-layout: fixed; width: 100%;">
+                        <thead>
+
+                            <tr>
+                                <th>S.No.</th>
+                                <th>Student Roll</th>
+                                {% for i in attendance %}
+                                    {% for j in i %}
+                                        <th>{{j.date}}</th>
+                                    {% endfor %}
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in mapp %}
+                            <tr>
+                                <td>{{forloop.counter}}</td>
+                                <td>{{item.stu_id}}</td>
+                                {% for i in attendance %}
+                                    {% for j in i %}
+                                        {% if j.stu_map == item %}
+                                        <td style="color: green; font-weight: bold;">P</td>
+                                        {% else %}
+                                        <td style="color: red;">A</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endfor %}
+
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    {% endblock %}

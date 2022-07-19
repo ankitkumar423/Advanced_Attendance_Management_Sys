@@ -1,0 +1,193 @@
+{% extends 'admin_sidebar.html' %}
+{% load static %}
+
+    {% block main %}
+
+	<div class="row">
+        <div class="col-lg-12 mx-auto">
+            <div class="card shadow mt-5">
+            <h5 class="mt-4 mx-4" style="border-bottom: 2px solid black;"> Student Registration</h5>
+                <div class="card-body">
+                <form method="post" name="signup" enctype="multipart/form-data" onsubmit="return checkpassword()" >
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" name="fname" class="form-control" placeholder="Enter First Name" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" name="lname" class="form-control" placeholder="Enter Last Name" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                            <label>Roll No</label>
+                            <input type="text" name="roll" class="form-control" placeholder="Enter Roll" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                            <label>Fathers Name</label>
+                            <input type="text" name="fthname" class="form-control" placeholder="Enter Fathers Name" required>
+                            </div>
+                        </div>                       
+                        <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Branch</label>
+                                    <select name="branch" class="form-control">
+                                        <option value="None">Select Branch</option>
+                                        <option value="Electronics">Electronics</option>
+                                        <option value="DataBase">Computer Science</option>
+                                        <option value="Networking">Networking</option>
+                                        <option value="Networking">Civil</option>
+                                        <option value="Networking">Mechanical</option>
+                                        <option value="Networking">Chemical</option>
+                                    </select>
+                                </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                            <label>Semester</label>
+                            <input type="number" name="sem" class="form-control" placeholder="Enter Semester" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                            <label>Contact No.</label>
+                            <input type="text" name="contact" class="form-control" placeholder="Enter Contact Details" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                            <label>Date Of Birth</label>
+                            <input type="date" name="dob" class="form-control" placeholder="Enter Your BirthDate" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                            <label>Gender</label>
+                            <select name="gender" class="form-control">
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Other</option>
+                            </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                            <label>Fee Receipt No</label>
+                            <input type="text" name="feereceipt" class="form-control" placeholder="Enter Receipt Number">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                            <label>Upload Fee Receipt</label>
+                            <input type="file" name="receiptpic" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                            <label>Upload Pic</label>
+                            <input type="file" name="stupic" class="form-control" required>
+                            </div>
+                        </div>
+
+
+
+                        <!-- CHOOSE YOUR SUBJECT -->
+                        <div id="sembranch" class="row">
+                            <div id="repeat" class="row">
+                                <div class="col-sm-10">
+                                    <div class="form-group">
+                                        <label>Choose Your Subject <span>(Choose at least four)</span></label>
+                                        <select name="subitem[]" class="form-control">
+                                        {% for entry in items %}
+                                            <option value="{{ entry.subject_id }}">{{ entry.subjects }}</option>
+                                        {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                                <button class="col-sm-1 btn btn-sm" style="font-size: 40px;" onclick="addEle();" >+</button>
+                                <button class="col-sm-1 btn btn-sm" style="font-size: 40px;" onclick="removeEle(this);">-</button>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                            <label>Create Password</label>
+                            <input type="password" name="stupass" class="form-control" placeholder="Set You Password" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                            <label>Confirm Password</label>
+                            <input type="password" name="cpw" class="form-control" placeholder="Enter Password Again" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                            <label>About Student</label>
+                            <textarea class="form-control" placeholder="More About Student" name="about"></textarea> 
+                            </div>
+                        </div>
+                    </div>
+                        <br>
+                    <input type="submit" name="Submit" class="btn btn-primary">    
+                </form>
+                </div>
+            </div>      
+        </div>
+    </div>
+
+    <script>
+
+    function addEle(){
+        var html = document.getElementById("repeat").innerHTML;
+        var newDiv = document.createElement("div");
+        newDiv.innerHTML = html;
+        document.getElementById("sembranch").appendChild(newDiv);
+        newDiv.setAttribute("class", "row");
+        newDiv.setAttribute("id", "repeat");
+    }
+    function removeEle(element){
+        var childs = document.querySelectorAll("#repeat");
+        console.log(childs);
+        if(childs.length > 4){
+            element.parentNode.remove();
+        }else{
+            alert("You have to choose at least four Subjects.");
+        }
+        
+    }
+
+    function checkpassword() {
+        if(document.signup.stupass.value!= document.signup.cpw.value)
+        {
+            alert('ERROR')
+            document.signup.cpw.focus();
+            return false;
+        }
+        return true;
+    }
+    </script>
+
+    {% if error == "no" %}
+    <script>
+        alert('Successful');
+        window.location=('{% url 'staff_studetails' %}');
+    </script>
+    {% endif %}
+
+    {% if error == "yes" %}
+    <script>
+        alert('ERROR');
+    </script>
+    {% endif %}
+
+
+	{% endblock %}

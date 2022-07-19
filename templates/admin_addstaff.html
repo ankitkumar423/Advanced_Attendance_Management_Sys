@@ -1,0 +1,151 @@
+{% extends 'admin_sidebar.html' %}
+{% load static %}
+    
+    {% block main %}
+
+    <div class="row">
+        <div class="col-lg-12 mx-auto">
+            <div class="card shadow mt-5">
+            <h5 class="mt-4 mx-4" style="border-bottom: 2px solid black;"> Create An Account </h5>
+                <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" name="fname" class="form-control" placeholder="Enter First Name" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" name="lname" class="form-control" placeholder="Enter Last Name" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="email" class="form-control" placeholder="Enter Email Address" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                            <label>Contact No.</label>
+                            <input type="text" name="contact" class="form-control" placeholder="Enter Contact Details" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                            <label>Post</label>
+                            <input type="text" name="post" class="form-control" placeholder="Enter Post" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                    <label>Branch</label>
+                                    <select name="branch" class="form-control">
+                                        <option value="None">Select Branch</option>
+                                        <option value="Electronics">Electronics</option>
+                                        <option value="DataBase">Computer Science</option>
+                                        <option value="Networking">Networking</option>
+                                    </select>
+                            </div>
+                        </div>
+                        
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                            <label>Upload Pic</label>
+                            <input type="file" name="staffpic" class="form-control" required>
+                            </div>
+                        </div>
+                        <div id="sembranch" class="row">
+                            <div id="repeat" class="row">
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label>Semester</label>
+                                        <input type="number" name="sem[]" class="form-control" min="1" max="8" placeholder="Semester" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-8">
+                                    <div class="form-group">
+                                        <label>Choose Your Subject</label>
+                                        <select name="subitem[]" class="form-control">
+                                        {% for entry in items %}
+                                            <option value="{{ entry.subject_id }}">{{ entry.subjects }}</option>
+                                        {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                                <button class="col-sm-1 btn btn-sm" style="font-size: 40px;" onclick="addEle();" >+</button>
+                                <button class="col-sm-1 btn btn-sm" style="font-size: 40px;" onclick="removeEle(this);">-</button>
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                            <label>Create Password</label>
+                            <input type="password" name="pass" class="form-control" placeholder="Set You Password" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                            <label>Confirm Password</label>
+                            <input type="password" name="cpw" class="form-control" placeholder="Enter Password Again" required>
+                            </div>
+                        </div>
+                    </div>
+                        <br>
+                    <input type="submit" name="Submit" class="btn btn-primary">    
+                </form>
+                </div>
+            </div>      
+        </div>
+    </div>
+
+    {% if error == "no" %}
+    <script>
+        alert('Successful');
+        window.location=('{% url 'stafflogin' %}');
+    </script>
+    {% endif %}
+
+    {% if error == "yes" %}
+    <script>
+        alert('ERROR');
+    </script>
+    {% endif %}
+
+    <script>
+    function checkpassword() {
+        if(document.signup.pass.value!= document.signup.confpass.value)
+        {
+            alert('ERROR')
+            document.signup.confpass.focus();
+            return false;
+        }
+        return true;
+    }
+
+    function addEle(){
+        var html = document.getElementById("repeat").innerHTML;
+        var newDiv = document.createElement("div");
+        newDiv.innerHTML = html;
+        document.getElementById("sembranch").appendChild(newDiv);
+        newDiv.setAttribute("class", "row");
+        newDiv.setAttribute("id", "repeat");
+    }
+    function removeEle(element){
+        var childs = document.querySelectorAll("#repeat");
+        console.log(childs);
+        if(childs.length > 1){
+            element.parentNode.remove();
+        }else{
+            alert("You have to choose at least one branch.");
+        }
+        
+    }
+    </script>
+
+    {% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+    {% block body %}
+  
+        <div class="card shadow mx-auto mt-5" style="width: 30rem; background-color: rgb(204,231,232);">
+        <div class="card-body">
+        <form method="post" enctype="multipart/form-data" action="signup">
+          {% csrf_token %}
+          <div class="form-row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" name="firstname" class="form-control" placeholder="Enter First Name" required pattern="[A-Za-z]+">
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" name="lastname" class="form-control" placeholder="Enter Last Name" required pattern="[A-Za-z]+">
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label>Roll Number</label>
+              <input type="text" name="roll" class="form-control" placeholder="Enter Roll Number" required>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label>Upload Pic</label>
+              <input type="file" name="userpic" class="form-control" required>
+            </div>
+          </div>
+          </div>        
+          <input class="btn btn-primary" type="submit" name="submit">
+          <br><br>
+        </form>
+        </div>
+        </div>
+
+    {% endblock %}
+
+   
+    

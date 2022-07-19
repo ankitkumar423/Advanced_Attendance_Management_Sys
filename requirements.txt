@@ -1,0 +1,7 @@
+django
+face_recognition
+numpy
+opencv-python
+os-sys
+python-dateutil
+pytz

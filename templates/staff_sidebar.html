@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+	{% block head %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/sidebar.css' %}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+    {% endblock %}
+
+
+    {% block body %}
+
+	<!-- sidebar start  -->
+
+	<div class="bg-white vertical-nav" id="sidebar">
+		<div class="py-4 px-3 bg-light mb-1">
+			<p class="text-center font-weight-bold text-uppercase sidebar-title"> Staff Home</p>
+			<div class="media d-flex align-item-center">
+				<img src="{{request.user.staff_set.all.0.userpic.url}}" width="80" height="80" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+				<div class="media-body p-2">
+					<h4 class="mt-2 mb-0 text-capitalize" style="font-size: 20px"> {{request.user.first_name}} {{request.user.last_name}} </h4>
+					<p class="text-muted mb-0">{{request.user.username}}</p>
+				</div>				
+			</div>
+		</div>
+
+		<ul class="nav flex-column bg-white">
+			<li class="nav-item mb-1">
+				<a href="/staffprofile" class="nav-link text-dark bg-light">Profile</a>
+			</li>
+			<li class="nav-item mb-1">
+				<div class="dropdown">
+				  <div class="nav-link text-dark form-control bg-light" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+				    Student Info
+				  </div>
+				  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+				    <li><a class="dropdown-item text-dark form-control bg-light" href="/staff_studetails">Student Details</a></li>
+				    <li><a class="dropdown-item text-dark form-control bg-light" href="/staff_addstu">Add Student</a></li>
+				  </ul>
+				</div>
+			</li>
+
+			<li class="nav-item mb-1">
+				<a href="/classes" class="nav-link text-dark bg-light">Classes</a>
+			</li>
+
+			<li class="nav-item mb-1">
+				<a href="/Logout" class="nav-link text-dark bg-light">Logout</a>
+			</li>
+		</ul>
+	</div>
+	<!-- sidebar end  -->
+
+	<!-- content placeholder start -->
+
+	<div class="page-content p-4" id="content">
+	    {% block main %}
+   		{% endblock %}
+
+   		<!-- content placeholder end -->
+
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'staff_sidebar.html' %}
+{% load static %}
+
+    {% block main %}
+
+    <div class="student-profile py-4">
+	  <div class="container">
+	    <div class="row">
+	      <div class="col-lg-12">
+	        <div class="card shadow-sm">
+	          <div class="card-header bg-transparent border-0">
+	          	<div class="card-header bg-transparent text-center">
+		            <img class="profile_img" src="{{staff.user.staff_set.all.0.userpic.url}}" alt="staffpic">
+		            <h3>{{staff.user.first_name}} {{staff.user.last_name}}</h3>
+		          </div>
+		          <div class="card-body">
+		            <p class="mb-0"><strong class="pr-1">Email ID:</strong>{{staff.user.username}}</p>
+		            <p class="mb-0"><strong class="pr-1">Branch:</strong>{{staff.branch}}</p>
+		          </div>
+	            <h3 class="mb-0"></i>General Information</h3>
+	          </div>
+	          <div class="card-body pt-0">
+	            <table class="table table-bordered">
+	              <tr>
+	                <th width="30%">Contact No:</th>
+	                <td width="2%">:</td>
+	                <td>{{staff.contact}}</td>
+	              </tr>
+	              <tr>
+	                <th width="30%">Post:</th>
+	                <td width="2%">:</td>
+	                <td>{{staff.post}}</td>
+	              </tr>
+	              <tr>
+	                <th width="30%">Branch</th>
+	                <td width="2%">:</td>
+	                <td>{{staff.branch}}</td>
+	              </tr>
+	              <tr>
+                    <th width="30%">User Pic</th>
+                    <td width="2%">:</td>
+                    <td><img class="profile_img" src="{{staff.user.staff_set.all.0.userpic.url}}" width="50" height="50" alt="staff dp"></td>
+                  </tr>
+	            </table>
+	          </div>
+	        </div>
+	          <div style="height: 26px"></div>
+	        <div class="card shadow-sm">
+	          <div class="card-header bg-transparent border-0">
+	            <h3 class="mb-0"></i>Other Information</h3>
+	          </div>
+	          <div class="card-body pt-0">
+	              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+
+	{% endblock %}

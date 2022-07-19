@@ -1,0 +1,41 @@
+{% extends 'admin_sidebar.html' %}
+{% load static %}
+
+    {% block main %}
+    <div class="student-profile py-4">
+        <div class="card shadow">
+            <div class="card-body">
+                <h5 class="p-2 mb-0"> Staff Details</h5>
+
+                <div class="container-fluid">
+                    <table id="example" class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>S.No.</th>
+                                <th>Staff Name</th>
+                                <th>Contact</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in staff %}
+                            <tr>
+                                <td>{{forloop.counter}}</td>
+                                
+                                <td>{{i.user.first_name}} {{i.user.last_name}}</td>
+                                <td>{{i.contact}}</td>
+                                <td>
+                                    <a href="{% url 'admin_viewstaff' i.id %}">View Details</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    {% endblock %}

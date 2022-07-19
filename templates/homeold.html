@@ -1,0 +1,200 @@
+{% extends 'base.html' %}
+{% load static %}
+
+    {% block head %}
+      <style type="text/css">
+        .testimonial-card .card-up { height: 120px; overflow: hidden; border-top-left-radius: 0.25rem; border-top-right-radius: 0.25rem; } 
+        .testimonial-card .avatar { width: 110px;margin-top: -60px; overflow: hidden; border: 3px solid #fff; border-radius: 50%; }
+      </style>
+    {% endblock %}
+    {% block body %}
+
+
+    <!-- navbar starts -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Student Management System</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto mr-5">
+            <li>
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    Logins
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="studenlogin">Student Login</a></li>
+                    <li><a class="dropdown-item" href="stafflogin">Staff Login</a></li>
+                    <li><a class="dropdown-item" href="adminlogin">Admin Login</a></li>
+                  </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact Us</a>
+            </li>
+           </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <!-- navbar ends -->
+
+    <!-- carousel starts -->
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner container-fluid" style="height: 400px;">
+            <div class="carousel-item active">
+              <img src="{% static 'images/carousel_image1.jpeg' %}" class="d-block w-100" style="height: 100%; alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="{% static 'images/carousel_image2.jpeg' %}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="{% static 'images/carousel_image3.jpg' %}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="{% static 'images/carousel_image4.jpg' %}" class="d-block w-100" alt="...">
+            </div>
+          </div>
+        </div>
+    <!-- carousel ends -->
+    <br>
+    <br>
+    <div class="row container-fluid">
+    <div class="col-6">
+        <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id sest laborum.</h3>
+    </div>
+    <div class="col-6" >
+        <img src="{% static 'images/carousel_image4.jpeg' %}" style="width: 97%; height: 350px; padding-left: 50px;" alt="home" />
+    </div>
+    </div>
+    <hr>
+    <div class="container-fluid">
+        <h2 class="text-center" style="font-weight: bold; color: #DC0000;" id="about">About</h2>
+        <hr>
+        <h5>
+        Nowadays, many attendance applications utilise biometric techniques such as the face, 
+        fingerprint, and iris recognition. Biometrics has become ubiquitous in many sectors. Due to 
+        the advancement of deep learning algorithms, the accuracy rate of biometric techniques has 
+        been improved tremendously. This paper proposes a web-based attendance system that 
+        adopts facial recognition using open-source deep learning pre-trained models. Face 
+        recognition procedural steps using web technology and database were explained.
+        <br>
+        <br>
+        <div style="font-weight: normal;">
+        The methodology used the required pre-trained weight files embedded in the procedure of face 
+        recognition. The face recognition method includes two important processes: registration of 
+        face datasets and face matching. The extracted feature vectors were implemented and stored 
+        in an online database to create a more dynamic face recognition process. Finally, user testing 
+        was conducted, whereby users were asked to perform a series of biometric verification. The 
+        testing consists of facial scans from the front, right (30 – 45 degrees) and left (30 – 45 
+        degrees). Reported face recognition results showed an accuracy of 92% with a precision of 
+        100% and recall of 90%.
+        </div>
+        </h5>
+    </div>
+    <br>
+
+    <!-- testimonials start -->
+    <section>
+      <div class="row d-flex justify-content-center">
+        <div class="container-fluid">
+          <hr>
+          <h2 class="text-center " style="font-weight: bold; color: #DC0000;" id="about">Testimonials</h2>
+          <hr>
+          <div class="col-md-10 col-xl-8 mx-auto text-center">
+          <p class="mb-4 pb-2 mb-md-5 pb-md-0">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet
+            numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum
+            quisquam eum porro a pariatur veniam.
+          </p>
+        </div>
+        </div>
+      </div>
+
+      <div class="row text-center">
+        <div class="col-md-4 mb-5 mb-md-0">
+          <div class="card testimonial-card">
+            <div class="card-up" style="background-color: #9d789b;"></div>
+            <div class="avatar mx-auto bg-white">
+              <img
+                src="{% static 'images/testi1.jpg' %}"
+                class="rounded-circle img-fluid"
+              />
+            </div>
+            <div class="card-body">
+              <h4 class="mb-4">Maria Smantha</h4>
+              <hr />
+              <p class="dark-grey-text mt-4">
+                <i class="fas fa-quote-left pe-2"></i>Really had a great help with such a website that managed all of my study related requirements at one place.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-5 mb-md-0">
+          <div class="card testimonial-card">
+            <div class="card-up" style="background-color: #7a81a8;"></div>
+            <div class="avatar mx-auto bg-white">
+              <img
+                src="{% static 'images/testi2.png' %}"
+                class="rounded-circle img-fluid"
+              />
+            </div>
+            <div class="card-body">
+              <h4 class="mb-4">Lisa Cudrow</h4>
+              <hr />
+              <p class="dark-grey-text mt-4">
+                <i class="fas fa-quote-left pe-2"></i>Great site, helped a lot.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-0">
+          <div class="card testimonial-card">
+            <div class="card-up" style="background-color: #6d5b98;"></div>
+            <div class="avatar mx-auto bg-white">
+              <img
+                src="{% static 'images/testi3.jpg' %}"
+                class="rounded-circle img-fluid"
+              />
+            </div>
+            <div class="card-body">
+              <h4 class="mb-4">John Smith</h4>
+              <hr />
+              <p class="dark-grey-text mt-4">
+                <i class="fas fa-quote-left pe-2"></i>Delectus impedit saepe officiis ab
+                aliquam repellat rem unde ducimus.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  <!-- testimonial ends -->
+
+    <hr>
+    <div class="container-fluid">
+        <h2 class="text-center" style="font-weight: bold; color: #DC0000;" id="contact" >Contact Us</h2>
+        <hr>
+        <div class="text-white" style="background-color: #AE0000;border-radius: 10px;">
+          <h4 style="padding-left: 20px; padding-top: 10px;">+91 777 777 8888</h4>            
+          <h4 style="padding-left: 20px; padding-bottom: 10px;">+91 666 777 8888</h4> 
+        </div>
+    </div>
+
+
+    {% endblock %}
+
+   
+    

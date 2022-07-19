@@ -1,0 +1,582 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Student Management System</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}"/>
+    
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}"/>
+
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}"/>
+
+    <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}"/>
+    
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/icomoon.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+  </head>
+  <body>
+
+    <!-- NAVBAR start -->
+	  <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light container-fluid" id="ftco-navbar">
+	    <div class="container d-flex align-items-center container-fluid">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav mr-auto">
+	        	<li class="nav-item active"><a href="/" class="nav-link pl-0">Home</a></li>
+	        	<li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+	        	<li class="nav-item"><a href="#teachers" class="nav-link">Teachers</a></li>
+	          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+	          <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+				      <ul class="navbar-nav ms-auto mr-5">
+				        <li class="nav-item dropdown">
+				          <a class="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				            Login/SignUp
+				          </a>
+				          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+				            <li><a class="dropdown-item" href="studenlogin">Student Login</a></li>
+				            <li><a class="dropdown-item" href="stafflogin">Staff Login</a></li>
+				            <li><a class="dropdown-item" href="adminlogin">Admin Login</a></li>
+				          </ul>
+				        </li>
+				      </ul>
+				    </div>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+    
+    <!-- Carousel Start -->
+    <section class="home-slider owl-carousel">
+      <div class="slider-item" style="background-image:url('{% static 'images/carousel_image1.jpeg' %}');">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row no-gutters slider-text align-items-center justify-content-start" data-scrollax-parent="true">
+          <div class="col-md-6 ftco-animate">
+            <h1 class="mb-4">Education Needs Complete Solution</h1>
+            <p><a href="#" class="btn btn-primary px-4 py-3 mt-3">Contact Us</a></p>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <div class="slider-item" style="background-image:url('{% static 'images/carousel_image2.jpeg' %}');">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row no-gutters slider-text align-items-center justify-content-start" data-scrollax-parent="true">
+          <div class="col-md-6 ftco-animate">
+            <h1 class="mb-4">University, College Education</h1>
+            <p><a href="#" class="btn btn-primary px-4 py-3 mt-3">Contact Us</a></p>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <div class="slider-item" style="background-image:url('{% static 'images/carousel_image3.jpg' %}');">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row no-gutters slider-text align-items-center justify-content-start" data-scrollax-parent="true">
+          <div class="col-md-6 ftco-animate">
+            <h1 class="mb-4">Take Your First Step To Learn With Us</h1>
+            <p><a href="#" class="btn btn-primary px-4 py-3 mt-3">Contact Us</a></p>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <div class="slider-item" style="background-image:url('{% static 'images/carousel_image4.jpg' %}');">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row no-gutters slider-text align-items-center justify-content-start" data-scrollax-parent="true">
+          <div class="col-md-6 ftco-animate">
+            <h1 class="mb-4">We Rank The Best Course On The Web</h1>
+            <p><a href="#" class="btn btn-primary px-4 py-3 mt-3">Contact Us</a></p>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Carousel End -->
+
+    <!-- Card Start -->
+    <section class="ftco-services ftco-no-pb">
+			<div class="container-wrap">
+				<div class="row no-gutters">
+          <div class="col-md-3 d-flex services align-self-stretch py-5 px-4 ftco-animate bg-primary">
+            <div class="media block-6 d-block text-center">
+              <div class="icon d-flex justify-content-center align-items-center">
+            		<span class="flaticon-teacher"></span>
+              </div>
+              <div class="media-body p-2 mt-3">
+                <h3 class="heading">Personalized attention</h3>
+                <p>Every student get personalized attention from their teachers if they face any problem in studies they can ask even  after the class personally in their cabin.</p>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md-3 d-flex services align-self-stretch py-5 px-4 ftco-animate bg-darken">
+            <div class="media block-6 d-block text-center">
+              <div class="icon d-flex justify-content-center align-items-center">
+            		<span class="flaticon-reading"></span>
+              </div>
+              <div class="media-body p-2 mt-3">
+                <h3 class="heading">Creative Lesson</h3>
+                <p>There are well equipped laboratories n different departments like computer science, electronics and mechanical where students can learn new things by doing practicals along with theory classes.</p>
+              </div>
+            </div>    
+          </div>
+          <div class="col-md-3 d-flex services align-self-stretch py-5 px-4 ftco-animate bg-primary">
+            <div class="media block-6 d-block text-center">
+              <div class="icon d-flex justify-content-center align-items-center">
+            		<span class="flaticon-books"></span>
+              </div>
+              <div class="media-body p-2 mt-3">
+                <h3 class="heading">Facial Attendance Recording</h3>
+                <p>For maintaining transparency and for keeping accurate attendance  record we have facial attention recording system</p>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md-3 d-flex services align-self-stretch py-5 px-4 ftco-animate bg-darken">
+            <div class="media block-6 d-block text-center">
+              <div class="icon d-flex justify-content-center align-items-center">
+            		<span class="flaticon-diploma"></span>
+              </div>
+              <div class="media-body p-2 mt-3">
+                <h3 class="heading">Regular Classes</h3>
+                <p>Regular classes are conducted and teachers take the class on time and it is necessary for all the students to maintain 75 percentage attendance in each class.</p>
+              </div>
+            </div>      
+          </div>
+        </div>
+			</div>
+		</section>
+		<!-- Card End -->
+
+		<!-- What we offer Start -->
+		<section class="ftco-section ftco-no-pt ftc-no-pb">
+			<div class="container">
+				<div class="row d-flex">
+					<div class="col-md-5 order-md-last wrap-about wrap-about d-flex align-items-stretch">
+						<div class="img m-2" style="background-image:  url('{% static 'images/about.jpg' %}'); border"></div>
+					</div>
+					<div class="col-md-7 wrap-about py-5 pr-md-4 ftco-animate">
+          	<h2 class="mb-4">What We Offer</h2>
+						<div class="row mt-5">
+							<div class="col-lg-6">
+								<div class="services-2 d-flex">
+									<div class="icon mt-2 d-flex justify-content-center align-items-center"><span class="flaticon-security"></span></div>
+									<div class="text pl-3">
+										<h3>Personalized attention</h3>
+										<p>Every student get personalized attention from their teachers</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="services-2 d-flex">
+									<div class="icon mt-2 d-flex justify-content-center align-items-center"><span class="flaticon-reading"></span></div>
+									<div class="text pl-3">
+										<h3>Regular Classes</h3>
+										<p>Regular classes are conducted and teachers take the class on time</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="services-2 d-flex">
+									<div class="icon mt-2 d-flex justify-content-center align-items-center"><span class="flaticon-diploma"></span></div>
+									<div class="text pl-3">
+										<h3>Certified Teachers</h3>
+										<p>We have the best & most experienced teachers for all the subject over every branch.</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="services-2 d-flex">
+									<div class="icon mt-2 d-flex justify-content-center align-items-center"><span class="flaticon-education"></span></div>
+									<div class="text pl-3">
+										<h3>Facial Recogination Attendance</h3>
+										<p>Keeping accurate attendance record we have facial attention recording system.</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="services-2 d-flex">
+									<div class="icon mt-2 d-flex justify-content-center align-items-center"><span class="flaticon-jigsaw"></span></div>
+									<div class="text pl-3">
+										<h3>Creative Lessons</h3>
+										<p>There are well equipped laboratories n different departments where students can learn new things</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="services-2 d-flex">
+									<div class="icon mt-2 d-flex justify-content-center align-items-center"><span class="flaticon-kids"></span></div>
+									<div class="text pl-3">
+										<h3>Attendance Record Handeling</h3>
+										<p>Attendance is being recorded by the web app which saves the  time.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- What we offer End -->
+		
+		<!-- About Us Starts -->
+
+		<section class="ftco-section ftco-counter img" id="section-counter" style="background-image:url('{% static 'images/bg_3.jpg' %}");" data-stellar-background-ratio="0.5">
+    	<div class="container">
+    		<div class="row">
+    			<div class="col-6" >
+			        <img src="{% static 'images/carousel_image4.jpeg' %}" style="width: 108% ;height: 350px; padding-left: 30px;" alt="home" />
+			    </div>
+          <div class="col-md-6 heading-section heading-section-white ftco-animate pl-lg-5 pt-md-0 pt-5">
+            <h2 class="mb-4" id="about">About Us</h2>
+            <p>Nowadays, many attendance applications utilise biometric techniques such as the face, 
+        fingerprint, and iris recognition. Biometrics has become ubiquitous in many sectors. Due to 
+        the advancement of deep learning algorithms, the accuracy rate of biometric techniques has 
+        been improved tremendously. It is a web-based attendance system that 
+        adopts facial recognition using open-source deep learning pre-trained models. Face 
+        recognition procedural steps using web technology and database were explained.</p>
+          </div>
+          <p class="text-white heading-section heading-section-white ftco-animate pl-lg-5 pt-md-0 pt-5"> The methodology required pre-trained weight files embedded in the procedure of face 
+        recognition. The face recognition method includes two important processes: registration of 
+        face datasets and face matching. The extracted feature vectors were implemented and stored 
+        in an online database to create a more dynamic face recognition process. Finally, user testing 
+        was conducted, whereby users were asked to perform a series of biometric verification. The 
+        testing consists of facial scans from the front, right (30 – 45 degrees) and left (30 – 45 
+        degrees). Reported face recognition results showed an accuracy of 99.38%</p>
+        </div>	
+    		<div class="row d-md-flex align-items-center justify-content-center">
+    			<div class="col-lg-12">
+    				<div class="row d-md-flex align-items-center">
+		          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18">
+		            	<div class="icon"><span class="flaticon-doctor"></span></div>
+		              <div class="text">
+		                <strong class="number" data-number="18">0</strong>
+		                <span>Certified Teachers</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18">
+		            	<div class="icon"><span class="flaticon-doctor"></span></div>
+		              <div class="text">
+		                <strong class="number" data-number="401">0</strong>
+		                <span>Students</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18">
+		            	<div class="icon"><span class="flaticon-doctor"></span></div>
+		              <div class="text">
+		                <strong class="number" data-number="30">0</strong>
+		                <span>Courses</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18">
+		            	<div class="icon"><span class="flaticon-doctor"></span></div>
+		              <div class="text">
+		                <strong class="number" data-number="50">0</strong>
+		                <span>Awards Won</span>
+		              </div>
+		            </div>
+		          </div>
+	          </div>
+          </div>
+        </div>
+    	</div>
+    </section>
+		<!-- About Us Starts -->
+		<!-- Certified Teachers Starts -->
+
+		<section class="ftco-section bg-light" id="teachers">
+			<div class="container-fluid px-4">
+				<div class="row justify-content-center mb-5 pb-2">
+          <div class="col-md-8 text-center heading-section ftco-animate">
+            <h2 class="mb-4">Certified Teachers</h2>
+          </div>
+        </div>	
+				<div class="row">
+					<div class="col-md-6 col-lg-3 ftco-animate">
+						<div class="staff">
+							<div class="img-wrap d-flex align-items-stretch">
+								<div class="img align-self-stretch" style="background-image: url('{% static 'images/teacher-1.jpg' %}');"></div>
+							</div>
+							<div class="text pt-3 text-center">
+								<h3>Er. Somesh Malhotra</h3>
+								<span class="position mb-2">Assistant Professor</span>
+								<div class="faded">
+									<p></p>
+									<ul class="ftco-social text-center">
+		                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+		                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+		                <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
+		                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+		              </ul>
+	              </div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-3 ftco-animate">
+						<div class="staff">
+							<div class="img-wrap d-flex align-items-stretch">
+								<div class="img align-self-stretch" style="background-image: url('{% static 'images/teacher-2.jpg' %}');"></div>
+							</div>
+							<div class="text pt-3 text-center">
+								<h3>Dr. Vishal Awasthi</h3>
+								<span class="position mb-2">Coordinator</span>
+								<div class="faded">
+									<ul class="ftco-social text-center">
+		                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+		                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+		                <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
+		                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+		              </ul>
+	              </div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-3 ftco-animate">
+						<div class="staff">
+							<div class="img-wrap d-flex align-items-stretch">
+								<div class="img align-self-stretch" style="background-image: url('{% static 'images/teacher-3.jpeg' %}');"></div>
+							</div>
+							<div class="text pt-3 text-center">
+								<h3>Er. Neeraj Kumar</h3>
+								<span class="position mb-2">Reader</span>
+								<div class="faded">
+									<ul class="ftco-social text-center">
+		                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+		                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+		                <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
+		                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+		              </ul>
+	              </div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-3 ftco-animate">
+						<div class="staff">
+							<div class="img-wrap d-flex align-items-stretch">
+								<div class="img align-self-stretch" style="background-image: url('{% static 'images/teacher-4.jpeg' %}');"></div>
+							</div>
+							<div class="text pt-3 text-center">
+								<h3>Er. Anand Kumar Gupta</h3>
+								<span class="position mb-2">Assistant Professor</span>
+								<div class="faded">
+									<ul class="ftco-social text-center">
+		                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+		                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+		                <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
+		                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+		              </ul>
+	              </div>
+							</div>
+						</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Certified Teachers End -->
+
+		<!-- Testimonial Start -->
+
+		<section class="ftco-section testimony-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-2">
+          <div class="col-md-8 text-center heading-section ftco-animate">
+            <h2 class="mb-4">Student Says About Us</h2>
+          </div>
+        </div>
+        <div class="row ftco-animate justify-content-center">
+          <div class="col-md-12">
+            <div class="carousel-testimony owl-carousel">
+              <div class="item">
+                <div class="testimony-wrap d-flex">
+                  <div class="user-img mr-4" style="background-image: url('{% static 'images/testi1.jpg' %}')">
+                  </div>
+                  <div class="text ml-2">
+                  	<span class="quote d-flex align-items-center justify-content-center">
+                      <i class="icon-quote-left"></i>
+                    </span>
+                    <p>Good college with  supportive teacher staff who are always ready to help their students and facial attendance system make it's different from other colleges.</p>
+                    <p class="name">Sruti Raj</p>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap d-flex">
+                  <div class="user-img mr-4" style="background-image: url('{% static 'images/testi2.png' %}')">
+                  </div>
+                  <div class="text ml-2">
+                  	<span class="quote d-flex align-items-center justify-content-center">
+                      <i class="icon-quote-left"></i>
+                    </span>
+                    <p>college  premises has great infrastructure when compared to other engineering colleges in kanpur and facial attendance recording maintain the transparency between the teachers and students.</p>
+                    <p class="name">Roshni Singh</p>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap d-flex">
+                  <div class="user-img mr-4" style="background-image: url('{% static 'images/testi3.jpg' %}')">
+                  </div>
+                  <div class="text ml-2">
+                  	<span class="quote d-flex align-items-center justify-content-center">
+                      <i class="icon-quote-left"></i>
+                    </span>
+                    <p>LABS are well equipped with different softwares like Matlab and different machines which are required to prepare students for corporate world keeping in mind the latest industrial technologies.</p>
+                    <p class="name">Muskan Kumari</p>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap d-flex">
+                  <div class="user-img mr-4" style="background-image: url('{% static 'images/10_CPI.jpg' %}')">
+                  </div>
+                  <div class="text ml-2">
+                  	<span class="quote d-flex align-items-center justify-content-center">
+                      <i class="icon-quote-left"></i>
+                    </span>
+                    <p>This is the perfect place for doing engineering as it has well-qualified faculty, good infrastructure, and  an environment that encourages you to work hard.</p>
+                    <p class="name">Muskan Kumari</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      </div>
+    </section>
+
+		<!-- Testimonial End -->
+
+		<!-- Gallery Images Start -->
+		<section class="ftco-gallery">
+    	<div class="container-wrap">
+    		<div class="row justify-content-center mb-5 pb-2">
+          <div class="col-md-8 text-center heading-section ftco-animate">
+            <h2 class="mb-4">Our Achievers</h2>
+          </div>
+        </div>
+    		<div class="row no-gutters">
+					<div class="col-md-4 ftco-animate">
+						<a href="images/image_1.jpg" class="gimage-popup img d-flex align-items-center" style="background-image: url('{% static 'images/byjus6lpa1.jpg' %}');">
+							<div class="overlay d-flex align-items-center justify-content-center text-white" style=" background-color: orangered; font-weight: bold; margin-top: 100%; margin-bottom: 5%; padding-left: 8%; padding-right: 10%; font-size: 20px; text-shadow: 2px 2px 5px #000000;">Placed at Byjus 6 LPA
+							</div>
+						</a>
+					</div>
+					<div class="col-md-4 ftco-animate">
+						<a href="images/image_3.jpg" class="gimage-popup img d-flex align-items-center" style="background-image: url('{% static 'images/byjus6lpa2.jpg' %}');">
+							<div class="overlay d-flex align-items-center justify-content-center text-white" style=" background-color: orangered; font-weight: bold; margin-top: 100%; margin-bottom: 5%; padding-left: 8%; padding-right: 10%; font-size: 20px; text-shadow: 2px 2px 5px #000000;">Placed at Byjus 6 LPA
+							</div>
+						</a>
+					</div>
+					<div class="col-md-4 ftco-animate">
+						<a href="images/image_4.jpg" class="image-popup img d-flex align-items-center" style="background-image: url('{% static 'images/10_CPI.jpg' %}');">
+							<div class="overlay d-flex align-items-center justify-content-center text-white" style=" background-color: orangered; font-weight: bold; margin-top: 100%; margin-bottom: 5%; padding-left: 8%; padding-right: 10%; font-size: 20px; text-shadow: 2px 2px 5px #000000;">10 CPI
+							</div>
+						</a>
+					</div>
+        </div>
+    	</div>
+    </section>
+		<!-- Gallery Images End -->
+
+		<!-- Footer Start -->
+    <footer class="ftco-footer ftco-bg-dark ftco-section" id="contact">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md-6 col-lg-3">
+            <div class="ftco-footer-widget mb-5">
+            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<div class="block-23 mb-3">
+	              <ul>
+	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Student Management System, India, 830000</span></li>
+	                <li class="m-0"><a href="#"><span class="icon icon-phone"></span><span class="text">+91 666 777 8888</span></a></li>
+	                <li class="mb-3"><a href="#"><span class="icon icon-phone"></span><span class="text">+91 777 777 8888</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="ftco-footer-widget mb-5 ml-md-4">
+              <h2 class="ftco-heading-2">Links</h2>
+              <ul class="list-unstyled">
+                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Home</a></li>
+                <li><a href="#about"><span class="ion-ios-arrow-round-forward mr-2"></span>About</a></li>
+                <li><a href="#contact"><span class="ion-ios-arrow-round-forward mr-2"></span>Contact</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="ftco-footer-widget mb-5">
+            	<h2 class="ftco-heading-2">Subscribe Us!</h2>
+              <form action="#" class="subscribe-form">
+                <div class="form-group">
+                  <input type="text" class="form-control mb-2 text-center" placeholder="Enter email address">
+                  <input type="submit" value="Subscribe" class="form-control submit px-3">
+                </div>
+              </form>
+            </div>
+            <div class="ftco-footer-widget mb-5">
+            	<h2 class="ftco-heading-2 mb-0">Connect With Us</h2>
+            	<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
+                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+	<!-- Footer End -->
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+ 
+  <!-- page load -->
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+  <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+  <script src="{% static 'js/aos.js' %}"></script>
+
+
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <!-- text animation -->
+  <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+  <!-- carousel -->
+  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+  <!-- numbers -->
+  <script src="{% static 'js/jquery.animateNumber.min.js' %}"></script>
+  <!-- card amination -->
+  <script src="{% static 'js/scrollax.min.js' %}"></script>
+  
+  <script src="{% static 'js/main.js' %}"></script>
+    
+  </body>
+</html>

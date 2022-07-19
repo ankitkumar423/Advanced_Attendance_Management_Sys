@@ -1,0 +1,59 @@
+{% extends 'stu_sidebar.html' %}
+{% load static %}
+
+    {% block main %}
+
+    <div class="student-profile py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <!-- subject card start -->
+
+            {% for item in mapp %}
+            <div class="card shadow-sm mb-2">
+              <div class="card-header bg-transparent border-0">
+                <h3 class="mb-0" style="border-bottom: 2px solid violet;">{{item.subject_id.subjects}}</h3>
+              </div>
+              <div class="card-body pt-0">
+                  <!-- <img src="{% static 'images/subject_thumbnail_1.png' %}" width="100%" height="200" class="mb-2"> -->
+                  <button class="btn"><a class="btn btn-danger" href="{% url 'stu_markattendance' item.subject_id.subjects %}">Mark Attendance</a></button>
+                  <button class="btn"><a class="btn btn-primary" href="{% url 'stu_viewattendance' item.subject_id.subjects %}">View Attendance</a></button>
+                  <!-- {{student.user.username}} -->
+              </div>
+            </div>
+          {% endfor %}
+
+            <!-- subject card end -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<!--     {% if error == "am" %}
+    <script>
+        alert('Successful');
+    </script>
+    {% endif %}
+
+    {% if error == "fnd" %}
+    <script>
+        alert('ERROR');
+    </script>
+    {% endif %}
+
+    {% if error == "pc" %}
+    <script>
+        alert('ERROR');
+    </script>
+    {% endif %}
+
+    {% if error == "sww" %}
+    <script>
+        alert('ERROR');
+    </script>
+    {% endif %} -->
+
+
+
+    {% endblock %}

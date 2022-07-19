@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+	{% block head %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/sidebar.css' %}"/>
+    {% endblock %}
+
+
+    {% block body %}
+
+	<!-- sidebar start  -->
+
+	<div class="bg-white vertical-nav" id="sidebar">
+		<div class="py-4 px-3 bg-light mb-1">
+			<p class="text-center font-weight-bold text-uppercase sidebar-title"> Student Home</p>
+			<div class="media d-flex align-item-center">
+				<img src="{{request.user.students_set.all.0.userpic.url}}" style="height: 80px;" width="80" height="80" class="rounded-circle img-thumbnail shadow-sm profile_img">
+				<div class="media-body p-2">
+					<h4 class="mt-2 mb-0 text-capitalize" style="font-size: 20px"> {{request.user.first_name}} {{request.user.last_name}} </h4>
+					<p class="text-muted mb-0">{{request.user.username}}</p>
+				</div>				
+			</div>
+		</div>
+
+		<ul class="nav flex-column bg-white">
+			<li class="nav-item mb-1">
+				<a href="/stuhome" class="nav-link text-dark bg-light {% if request.path == '/stuhome' %} active {% endif %}">Dashboard</a>
+			</li>
+			<li class="nav-item mb-1">
+				<a href="/stuprofile" class="nav-link text-dark bg-light {% if request.path == '/stuprofile' %} active {% endif %}">Profile</a>
+			</li>
+			<li class="nav-item mb-1">
+				<a href="/Logout" class="nav-link text-dark bg-light">Logout</a>
+			</li>
+		</ul>
+	</div>
+	<!-- sidebar end  -->
+
+	<!-- content placeholder start -->
+
+	<div class="page-content p-4" id="content">
+	    {% block main %}
+   		{% endblock %}
+
+   		<!-- content placeholder end -->
+
+
+{% endblock %}

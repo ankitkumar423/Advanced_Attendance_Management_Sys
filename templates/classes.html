@@ -1,0 +1,28 @@
+{% extends 'staff_sidebar.html' %}
+{% load static %}
+
+    {% block main %}
+    <div class="student-profile py-4">
+        <div class="card shadow">
+            <div class="card-body">
+                <h5 class="p-2 mb-0"> Classes</h5>
+
+                {% for item in mapp %}
+
+                <div class="card shadow-sm mb-2">
+                  <div class="card-header bg-transparent border-0">
+                    <h3 class="mb-0" style="border-bottom: 2px solid violet;">{{item.subject_id.subjects}}</h3>
+                  </div>
+                  <div class="card-body pt-0">
+                      <button class="btn"> <a class="btn btn-danger" href="{% url 'staff_startattendance' item.subject_id.subjects %}"> Start Attendance</a></button>
+                      <button class="btn"> <a class="btn btn-primary" href="{% url 'staff_viewattendance' item.subject_id.subjects %}"> View Attendance</a></button>
+                  </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+
+    {% endblock %}

@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+    
+    {% block head %}
+      <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}"/>
+      <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+
+    {% endblock %}
+
+    {% block body %}
+<section style="background: linear-gradient(45deg, #0d1128 0%, #fd6100 100%); height: 100% ; width: 100%;">
+    <!-- navbar starts -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a style="font-weight: bold; color: white; font-size: 20px;" href="/">Student Management System</a>
+      </div>
+    </nav>
+
+
+    <!-- navbar ends -->
+
+
+
+<!--     <div class="row">
+    <div class="col-lg-5 m-auto">
+    <div class="card shadow mt-5">
+        <div class="mt-3 mx-4">
+        <form method="post">
+        {% csrf_token %}
+            <div class="text-center">
+                <h3>Admin Login Page</h3> 
+            </div>
+          <div class="form-group">
+            <label for="foremail">Email</label>
+            <input type="email" name="admmail" class="form-control" aria-describedby="email" placeholder="Enter Email Address">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" name="admpass" class="form-control" placeholder="Password">
+          </div>
+          <hr>
+          <button type="submit" class="btn btn-primary">Login</button>
+          <br>
+          <br>
+        </form>
+        </div>
+    </div>
+    </div> -->
+
+    <div class="form-bg">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 mx-auto">
+                  <div class="form-container">
+                      <div class="form-icon">
+                          <i class="fa fa-user-circle"></i>
+                          <span class="signup"><a href="adminregister">Don't have account? Signup</a></span>
+                      </div>
+                      <form method="post" class="form-horizontal">
+                          {% csrf_token %}
+                          <h3 class="title">Admin Login</h3>
+                          <div class="form-group">
+                              <span class="input-icon"><i class="fa fa-user"></i></span>
+                              <input class="form-control" type="text" name="admmail" placeholder="Roll Number">
+                          </div>
+                          <div class="form-group">
+                              <span class="input-icon"><i class="fa fa-lock"></i></span>
+                              <input class="form-control" type="password" name="admpass" placeholder="Password">
+                          </div>
+                          <button type="submit" class="btn signin">Login</button>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+</section>
+    {% if error == "no" %}
+    <script>
+        swal({
+        title: "Logged In",
+        icon: "success",
+        });
+        window.location=('{% url 'adminhome' %}');
+    </script>
+    {% endif %}
+
+    {% if error == "yes" %}
+    <script>
+        swal({
+        title: "Login Error",
+        icon: "error",
+        });
+    </script>
+    {% endif %}
+
+
+
+    {% endblock %}

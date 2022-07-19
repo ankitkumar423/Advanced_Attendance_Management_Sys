@@ -1,0 +1,98 @@
+{% extends 'stu_sidebar.html' %}
+{% load static %}
+
+    {% block main %}
+
+    <div class="student-profile py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card shadow-sm">
+              <div class="card-header bg-transparent border-0">
+                <div class="card-header bg-transparent text-center">
+                    <img class="profile_img" src="{{request.user.students_set.all.0.userpic.url}}" alt="student dp">
+                    <h3>{{request.user.first_name}} {{request.user.last_name}}</h3>
+                  </div>
+                  <div class="card-body">
+                    <p class="mb-0"><strong class="pr-1">Roll No: </strong>{{student.user.username}}</p>
+                    <p class="mb-0"><strong class="pr-1">Semester: </strong>{{student.semester}}</p>
+                  </div>
+                <h3 class="mb-0">General Information</h3>
+              </div>
+              <div class="card-body pt-0">
+                <table class="table table-bordered">
+                  <tr>
+                    <th width="30%">Roll</th>
+                    <td width="2%">:</td>
+                    <td>{{student.user.username}}</td>
+                  </tr>
+                  <tr>
+                    <th width="30%">Father's Name</th>
+                    <td width="2%">:</td>
+                    <td>{{student.fathername}}</td>
+                  </tr>
+                  <tr>
+                    <th width="30%">Branch</th>
+                    <td width="2%">:</td>
+                    <td>{{student.branch}}</td>
+                  </tr>
+                  <tr>
+                    <th width="30%">Semester</th>
+                    <td width="2%">:</td>
+                    <td>{{student.semester}}</td>
+                  </tr>
+                  <tr>
+                    <th width="30%">Date Of Birth</th>
+                    <td width="2%">:</td>
+                    <td>{{student.birthdate}}</td>
+                  </tr>
+                  <tr>
+                    <th width="30%">Contact No</th>
+                    <td width="2%">:</td>
+                    <td>{{student.contact}}</td>
+                  </tr>
+                  <tr>
+                    <th width="30%">User Pic</th>
+                    <td width="2%">:</td>
+                    <td><img class="profile_img" src="{{student.user.students_set.all.0.userpic.url}}" width="50" height="50" alt="student dp"></td>
+                  </tr>
+                  <tr>
+                    <th width="30%">Gender</th>
+                    <td width="2%">:</td>
+                    <td>{{student.gender}}</td>
+                  </tr>
+                  <tr>
+                    <th width="30%">Fee Receipt</th>
+                    <td width="2%">:</td>
+                    <td>{{student.feereceipt}}</td>
+                  </tr>
+                  <tr>
+                    <th width="30%">Fee Receipt pic</th>
+                    <td width="2%">:</td>
+                    <td><img class="profile_img" src="{{student.user.students_set.all.0.receiptpic.url}}" width="50" height="50" alt="student dp"></td>
+                  </tr>
+                  <tr>
+                    <th width="30%">Registration Date</th>
+                    <td width="2%">:</td>
+                    <td>{{student.regdate}}</td>
+                  </tr> 
+                </table>
+
+              </div>
+            </div>
+              <div style="height: 26px"></div>
+            <div class="card shadow-sm">
+              <div class="card-header bg-transparent border-0">
+                <h3 class="mb-0" style="border-bottom: 2px solid">About {{student.user.first_name}}</h3>
+              </div>
+              <div class="card-body pt-0">
+                  {{student.about}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    {% endblock %}
